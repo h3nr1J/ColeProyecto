@@ -1,0 +1,93 @@
+
+  <div class="container-fluid">
+  
+    <div class="mb-3">
+      <label for="nombre-alumno">Nombre</label>
+      <input type="text" class="form-control"id="nombre-alumno" aria-describedby="nombreHelp" placeholder="Ingrese su nombre completo"[(ngModel)]="alumno.nombre">
+      <small id="nombrelHelp" class="form-text text-muted">Indique su nombre</small>
+    </div>
+    <div class="mb-3">
+        <label for="codigo-alumno">Codigo </label>
+        <input type="text" class="form-control" id="codigo-alumno" aria-describedby="codigoHelp" placeholder="Ingrese su codigo "[(ngModel)]="alumno.codigo">
+        <small id="nombrelHelp" class="form-text text-muted">Indique su codigo</small>
+      </div>
+      <div class=" mb-3">
+        <label for="correo-alumno">Correo </label>
+        <input type="email" class="form-control" id="correo-alumno" aria-describedby="correoHelp" placeholder="Ingrese su correo" [(ngModel)]="alumno.email">
+        <small id="nombrelHelp" class="form-text text-muted">Indique su correo</small>
+      </div>
+    
+    <button type="submit" class="btn btn-primary" (click)="onDatos()">Registrar</button>
+  
+  </div>
+  <div class="container-fluid">
+    <h1>Aqui puedes ver el Horario de {{alumno.nombre}}</h1>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Hora</th>
+        <th scope="col">Lunes</th>
+        <th scope="col">Martes</th>
+        <th scope="col">Miercoles</th>
+        <th scope="col">Jueves</th>
+        <th scope="col">Viernes</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>{{curso.primero}}</td>
+        <td>{{curso.segundo}}</td>
+        <td>{{curso.tercero}}</td>
+        <td>{{curso.cuarto}}</td>
+        <td>{{curso.quinto}}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>{{curso.segundo}}</td>
+        <td>{{curso.cuarto}}</td>
+        <td>{{curso.quinto}}</td>
+        <td>{{curso.primero}}</td>
+        <td>{{curso.cuarto}}</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>{{curso.cuarto}}</td>
+        <td>{{curso.tercero}}</td>
+        <td>{{curso.primero}}</td>
+        <td>{{curso.segundo}}</td>
+        <td>{{curso.tercero}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  
+  <div class="container-fluid">
+    <h2>Aqui puedes ver los registros de los estudiantes</h2>
+  <table class="table table-sm table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Codigo</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Correo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumn of alumnos;index as i">
+        
+        <td>{{alumn.codigo}}</td>
+        <td>{{alumn.nombre}}</td>
+        <td>{{alumn.email}}</td>
+        <td><button type="button" class="btn btn-warning"(click)="onEditar()" (click)="Pos(i)" >editar</button></td> 
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-warning"(click)="onEliminar(0)" >ELIMINAR</button>
+  
+  </div>
+  
+  
+  
+  
+
